@@ -8,8 +8,8 @@ public class Livro extends Produto {
 		
 	private String autor;
 
-	public Livro(String autor, String nome, double preco, String codigoBarras) {
-		super(nome, preco, codigoBarras);
+	public Livro(String nome, String autor, double preco, String codigoBarras) {
+		super(nome, preco, codigoBarras, "Livro");
 		setAutor(autor);	
 	}
 	

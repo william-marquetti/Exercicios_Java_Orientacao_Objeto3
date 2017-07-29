@@ -2,20 +2,28 @@ package exercicios2;
 
 import java.text.DecimalFormat;
 
-public abstract class Produto {
+public abstract class Produto implements IComparacao{
 	
 	DecimalFormat df = new DecimalFormat("#0.00");	
 	
 	private String nome;
 	private double preco;
 	private String codigoBarras;
+	private final String tipo;
 	
-	Produto(String nome, double preco, String codigoBarras){
+
+
+	Produto(String nome, double preco, String codigoBarras, String tipo){
 		setNome(nome);
 		setPreco(preco);
 		setCodigoBarras(codigoBarras);
+		this.tipo = tipo;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -43,9 +51,30 @@ public abstract class Produto {
 	@Override
 	public String toString() {
 		String dados;
-		dados = "\nNome: "+ getNome();
+		dados = "\nCódigo de Barras: "+ getCodigoBarras();
+		dados += "\nTipo: "+ getTipo();
+		dados += "\nNome: "+ getNome();
 		dados += "\nPreço: R$"+ df.format(getPreco());
 		return dados;
+	}
+	
+	/**
+	 * 
+	 * Object obj é a representação genérica de um objeto.
+	 * Para acessar a varíavel obj como um objeto do tipo produto,
+	 * foi necessário realizar o CAST informando o tipo do objeto conforme exemplo:
+	 * 
+	 * Produto outro = (Produto) obj;
+	 * 
+	 * O CAST é feito ao declarar entre parênteses o tipo do objeto/variável antes da variável selecionada
+	 * Neste caso, o objeto "obj" foi convertido para um objeto do tipo "Produto".
+	 * 
+	 */
+	
+	@Override
+	public boolean equals(Object obj) {
+		Produto outro = (Produto) obj;
+		return this.codigoBarras.equals(outro.getCodigoBarras());
 	}
 	
 	

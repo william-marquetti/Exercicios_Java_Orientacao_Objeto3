@@ -5,7 +5,7 @@ public class CD extends Produto{
 	private int numeroFaixas;
 
 	public CD(String nome, double preco, int numeroFaixas, String codigoBarras) {
-		super(nome, preco, codigoBarras);
+		super(nome, preco, codigoBarras, "CD");
 		setNumeroFaixas(numeroFaixas);
 	}
 	

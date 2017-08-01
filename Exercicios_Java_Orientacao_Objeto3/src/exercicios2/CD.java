@@ -1,5 +1,7 @@
 package exercicios2;
 
+import java.util.Vector;
+
 public class CD extends Produto{
 
 	private int numeroFaixas;
@@ -23,6 +25,16 @@ public class CD extends Produto{
 		dados += "\nNúmero de Faixas: "+ getNumeroFaixas();
 		return dados;
 	}
-	
 
+	
+	/**
+	 * Método utilizado para servir de parâmetro para a Interface Comparable.
+	 * A interface Comparable utilizará o retorno deste método para faze a comparação entre 
+	 * os objetos durante uma ordenação.
+	 * 
+	 */
+	@Override
+	public int compareTo(Produto o) {
+		return this.getNome().compareTo(o.getNome());
+	}
 }

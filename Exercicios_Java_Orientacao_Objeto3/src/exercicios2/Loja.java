@@ -1,12 +1,16 @@
 package exercicios2;
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Loja {
 	
 	public static void main(String[] args) {
 		
-		Vector<Produto> produtos = new Vector<Produto>();
+		//Vector<Produto> produtos = new Vector<Produto>();
+		
+		List<Produto> produtos = new ArrayList<>();
 		
 		produtos.add(new CD("Nirvana - Bleach", 25.99d, 16, "01212689"));
 		produtos.add(new CD("Raimundos - Lavô Tá Novo", 15.99d, 12, "01288989"));
@@ -22,20 +26,35 @@ public class Loja {
 		
 		DVD dvd1 = new DVD("Guia do Mochileiro das Galáxias", 59.9d, 180, "1478787");
 		
+		CD cd1 = new CD("Foo Fighters", 30.99, 15, "010106646");
+		
+
+		// pesquisando um produto utilizando um objeto como parâmetro
+		//buscaProduto(produtos, dvd1);
+		
+//		System.err.println(produtos.get(1).equals(produtos.get(3)));
+//		System.err.println(produtos.get(1).equals(produtos.get(2)));
+		
+		ComparacaoImpl  comparador = new ComparacaoImpl();
+		
+		//comparador.buscaProdutoNomeCodBarras(produtos, "Cota");
+	
 		for (Produto produto : produtos) {
-			//System.out.println(produto.toString());
+			System.out.println(produto.toString());
+
 		}
 		
-		// pesquisando um produto utilizando um objeto como parâmetro
-		buscaProduto(produtos, dvd1);
+		Collections.sort(produtos);
 		
-		System.err.println(produtos.get(1).equals(produtos.get(3)));
-		System.err.println(produtos.get(1).equals(produtos.get(2)));
-		
+		for (Produto produto : produtos) {
+			System.err.println(produto.toString());
+
+		}
+
 	}
 	
 	
-	public static void buscaProduto(Vector<Produto> vetorProdutos, Produto produtoPesquisado){
+	public static void buscaProduto(List<Produto> vetorProdutos, Produto produtoPesquisado){
 		
 		int tamanhoVetor = vetorProdutos.size();
 		int posicao = 0;

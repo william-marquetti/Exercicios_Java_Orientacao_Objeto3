@@ -1,8 +1,16 @@
 package exercicios3;
 
+import java.text.DecimalFormat;
+
 public class Circulo extends Formas {
 	
+	DecimalFormat df = new DecimalFormat("#0.00");
+
 	private double raio;
+	
+	public Circulo(){
+		
+	}
 	
 	public Circulo(double raio) {
 		setRaio(raio);
@@ -30,6 +38,16 @@ public class Circulo extends Formas {
 		
 	}
 
-	
+	@Override
+	public String toString() {
+		String dados;
+		dados = "\n-------------------------";
+		dados += "\nCírculo:";
+		dados += "\n-------------------------";
+		dados += "\nRaio: "+ df.format(this.getRaio())+ " cm";
+		dados += "\nÁrea: "+ df.format(this.getArea())+ " cm";
+		dados += "\nPerímetro: "+ df.format(this.getPerimetro())+ " cm";
+		return dados;
+	}
 	
 }
